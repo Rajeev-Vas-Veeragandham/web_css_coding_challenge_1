@@ -878,3 +878,196 @@ a:focus,
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-10px) rotate(2deg); }
 }
+/* ==== Fit images perfectly inside the scene boxes ==== */
+
+/* Make the boxes center their contents and hide overflow */
+.graveyard-scene,
+.mansion-layout,
+.forest-scene,
+.final-scene {
+  display: grid;
+  place-items: center;
+  overflow: hidden;         /* keeps anything from spilling out */
+  /* optional: adjust the box height if you want a bit taller */
+  /* height: 260px; */
+}
+
+/* Any <img> placed directly inside the box fills the box while preserving aspect */
+.graveyard-scene > img,
+.mansion-layout > img,
+.forest-scene > img,
+.final-scene > img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain;      /* show entire image (no crop) */
+  object-position: center;
+  display: block;
+}
+
+/* If one page (like page 4) still needs a smaller look, add class="img-xs" to that box */
+.img-xs > img { 
+  max-width: 80% !important; 
+  max-height: 80% !important; 
+}
+/* ===== Last page image: nudge upward ===== */
+/* Works when your last page section has id="final"
+   and the image sits inside a .final-scene figure */
+#final .final-scene > img {
+  object-position: center 35%;  /* move "view" upward; lower % = higher image */
+  transform: translateY(-10px); /* small extra lift */
+}
+
+/* If you also want the box content itself a bit higher inside the page: */
+#final .final-scene {
+  align-items: start;           /* pushes content toward the top of the box */
+  padding-top: 8px;             /* small breathing room */
+}
+/* --- Forest page: make image fill the box --- */
+#forest .forest-scene {
+  height: 260px;              /* tweak as you like */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+#forest .forest-scene > img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;   /* fills box (may crop slightly) */
+  object-position: center;        /* center the crop */
+  display: block;
+}
+/* Make the forest scene wider and fill edge-to-edge inside the book */
+#forest .forest-scene {
+  width: 98% !important;      /* override the 820px cap */
+  max-width: none !important;
+  height: 280px;              /* a touch taller looks better when wider */
+}
+
+/* Fill the forest frame completely */
+#forest .forest-scene > img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;   /* use 'contain' if you prefer no crop */
+  object-position: center;
+}
+
+/* If you want the final page wide the same way, include this too: */
+#final .final-scene {
+  width: 98% !important;
+  max-width: none !important;
+}
+/* === FINAL page: fit image neatly inside the box === */
+#final .final-scene {
+  /* make the frame a little taller and use full width of the book */
+  width: 98% !important;
+  max-width: none !important;
+  height: 320px;            /* adjust to taste (280–360px works well) */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* ensure the <img> uses all available space but keeps its aspect ratio */
+#final .final-scene > img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;   /* show the entire image (no crop) */
+  object-position: center;
+  display: block;
+  background: transparent;          /* avoids dark bleed behind PNGs/WebPs */
+}
+
+/* OPTIONAL: If you prefer edge-to-edge fill (may crop), switch to: */
+/* #final .final-scene > img { object-fit: cover !important; } */
+/* =============================
+   FINAL PAGE: guaranteed fit/fill
+   ============================= */
+
+/* 1) Make the final page frame wide, with no inner padding */
+section#final figure,
+section#final .scene,
+section#final [class*="scene"],
+#final figure,
+#final .scene,
+#final [class*="scene"] {
+  position: relative !important;
+  width: 99% !important;         /* remove narrow caps */
+  max-width: none !important;
+  height: 340px !important;      /* tweak 280–380px to taste */
+  margin-inline: auto !important;
+  padding: 0 !important;         /* kill inner padding (causes side gaps) */
+  overflow: hidden !important;
+  border-radius: 14px !important;
+}
+
+/* 2) Force ANY image inside that frame to fill it edge-to-edge */
+section#final figure > img,
+section#final .scene > img,
+section#final [class*="scene"] > img,
+#final figure > img,
+#final .scene > img,
+#final [class*="scene"] > img,
+#final img.final-image {
+  position: absolute !important;
+  inset: 0 !important;           /* top/right/bottom/left = 0 */
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  display: block !important;
+  object-position: center !important;
+
+  /* —— CHOOSE ONE: ——
+     To FILL (no side bars, may crop), keep COVER.
+     To FIT (show all, letterbox ok), switch to CONTAIN.
+  */
+  object-fit: cover !important;
+  /* object-fit: contain !important; */
+}
+
+/* 3) Neutralize any global caps that might still win */
+.scene > img,
+figure > img {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* 4) Optional: make the whole book content a tad wider on the final page */
+#final.page,
+section#final.page {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+/* ==== Center the pumpkin on the cover ==== */
+#cover .hero-pumpkin {
+  display: grid;             /* centers both axes */
+  place-items: center;
+  width: 100%;
+  margin: 0 auto;            /* keeps it centered in the page */
+  min-height: 0;             /* avoid odd stretching if parent is flex */
+}
+
+#cover .pumpkin-img {
+  width: clamp(120px, 18vw, 220px);  /* responsive size */
+  height: auto;
+  display: block;
+  margin: 0 auto;           /* belt-and-suspenders centering */
+  transform: none;          /* cancel any earlier shifts */
+}
+
+/* If your cover body is a flex row, force column + centering */
+#cover .page-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;       /* center the intro text too */
+}

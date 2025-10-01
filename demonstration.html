@@ -14,7 +14,7 @@
     <header class="main-header" role="banner">
         <div class="header-content">
             <h1 class="logo">
-                <img src="assets/images/pumpkin.png" alt="Spooky Pumpkin" class="logo-img">
+         <img src="assets/images/pumpkin.png" alt="Spooky Pumpkin" class="logo-img"> 
                 Night of the Hollow
             </h1>
             <nav class="main-nav" aria-label="Main navigation">
@@ -56,14 +56,15 @@
                 
                 <div class="page-body">
                     <div class="hero-pumpkin">
-                        <img src="assets/images/pumpkin.png" alt="Glowing Pumpkin" class="pumpkin-img">
+                      <img src="assets/images/pumpkin.png" alt="Pumpkin" class="pumpkin-center">
+</figure>
                     </div>
                     
                     <p class="intro-text">When the moon is full and the wind howls through dead trees, the spirits of Hollow Mansion awaken. Dare you explore its secrets?</p>
                     
                     <div class="character-showcase">
                         <div class="character vampire" tabindex="0">
-                            <img src="assets/images/skull.png" alt="Vampire" class="char-img">
+                            <img src="assets/images/vampire.png" alt="Vampire" class="char-img">
                             <span class="char-name">Vampire</span>
                         </div>
                         <div class="character werewolf" tabindex="0">
@@ -83,44 +84,66 @@
             </div>
         </section>
 
-        <!-- GRAVEYARD PAGE -->
-        <section id="graveyard" class="page graveyard-page" aria-labelledby="graveyard-title">
-            <div class="page-content">
-                <header class="page-header">
-                    <h2 id="graveyard-title" class="title-section">The Ancient Graveyard</h2>
-                </header>
-                
-                <div class="page-body">
-                    <article class="story-content">
-                        <p class="story-text">Moonlight filters through skeletal trees, casting long shadows across crumbling tombstones. The air grows cold as mist rises from the ground. Something stirs beneath the earth...</p>
-                    </article>
+     <!-- GRAVEYARD PAGE -->
+<section id="graveyard" class="page graveyard-page" aria-labelledby="graveyard-title">
+  <div class="page-content">
+    <header class="page-header">
+      <h2 id="graveyard-title" class="title-section">The Ancient Graveyard</h2>
+    </header>
+    
+    <div class="page-body">
+      <article class="story-content">
+        <p class="story-text">
+          Moonlight filters through skeletal trees, casting long shadows across crumbling tombstones.
+          The air grows cold as mist rises from the ground. Something stirs beneath the earth...
+        </p>
+      </article>
 
-                    <div class="interactive-scene">
-                        <div class="graveyard-scene">
-                            <div class="tombstone tomb-1">
-                                <img src="assets/images/tombstone.png" alt="Old Tombstone">
-                            </div>
-                            <div class="tombstone tomb-2">
-                                <img src="assets/images/tombstone.png" alt="Old Tombstone">
-                            </div>
-                            <div class="rising-ghost">
-                                <img src="assets/images/ghost.png" alt="Rising Ghost">
-                            </div>
-                            <div class="fog-overlay"></div>
-                        </div>
-                    </div>
+      <div class="interactive-scene">
+        <!-- Make the scene a positioned container so the image can be placed precisely -->
+        <div class="graveyard-scene" style="position: relative; overflow: hidden;">
+          <!-- MAIN GRAVEYARD IMAGE: fills the box and is nudged upward -->
+          <img
+            src="assets/images/graveyard.png"
+            alt="Ancient graveyard at night"
+            style="
+              position: absolute;
+              inset: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: contain;      /* shows entire image (no crop) */
+              object-position: center;  /* center the framing */
+              transform: translateY(-16px); /* lift it a bit; tweak -10px to -24px if needed */
+              display: block;
+            "
+          >
 
-                    <div class="spooky-fact">
-                        <p>💀 In Victorian times, families would have picnics in graveyards to remember loved ones.</p>
-                    </div>
-                    
-                    <nav class="page-nav">
-                        <a href="#cover" class="nav-btn bone-btn">← Home</a>
-                        <a href="#mansion" class="nav-btn pumpkin-btn">Next →</a>
-                    </nav>
-                </div>
-            </div>
-        </section>
+          <!-- Overlays remain on top -->
+          <div class="tombstone tomb-1">
+            <img src="assets/images/tombstone.png" alt="Old Tombstone">
+          </div>
+          <div class="tombstone tomb-2">
+            <img src="assets/images/tombstone.png" alt="Old Tombstone">
+          </div>
+          <div class="rising-ghost">
+            <img src="assets/images/ghost.png" alt="Rising Ghost">
+          </div>
+          <div class="fog-overlay" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="spooky-fact">
+        <p>💀 In Victorian times, families would have picnics in graveyards to remember loved ones.</p>
+      </div>
+      
+      <nav class="page-nav">
+        <a href="#cover" class="nav-btn bone-btn">← Home</a>
+        <a href="#mansion" class="nav-btn pumpkin-btn">Next →</a>
+      </nav>
+    </div>
+  </div>
+</section>
+
 
         <!-- HAUNTED MANSION PAGE -->
         <section id="mansion" class="page mansion-page" aria-labelledby="mansion-title">
@@ -150,7 +173,7 @@
 
                     <div class="character-interaction">
                         <div class="vampire-character" tabindex="0">
-                            <img src="assets/images/skull.png" alt="Vampire" class="char-large">
+                            <img src="assets/images/vampire.png" alt="Vampire" class="char-large">
                             <p class="hint">Hover to see fangs!</p>
                         </div>
                     </div>
@@ -180,7 +203,7 @@
                         <div class="tree tree-2"></div>
                         <div class="tree tree-3"></div>
                         <div class="werewolf-character" tabindex="0">
-                            <img src="assets/images/wolf.png" alt="Werewolf" class="wolf-img">
+                            <img src="assets/images/woods.jpg" alt="Woods" class="wolf-img">
                             <p class="hint">Hover for transformation!</p>
                         </div>
                         <div class="glowing-eyes">

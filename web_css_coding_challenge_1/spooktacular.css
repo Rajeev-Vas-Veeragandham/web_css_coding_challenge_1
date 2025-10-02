@@ -1,6 +1,3 @@
-/* =========================
-   CSS Variables - Official Halloween Palette
-   ========================= */
 :root {
   /* Color Palette */
   --pumpkin: #FF7518;
@@ -12,7 +9,6 @@
   /* Theme Colors */
   --blood: #8b0000;
   --moon-glow: #f9d71c;
-  --cobweb: #cfcfcf;
   --muted: #bfb0c7;
   
   /* Background Colors */
@@ -32,9 +28,7 @@
   --font-body: 'Georgia', serif;
 }
 
-/* =========================
-   Reduced Motion Preferences
-   ========================= */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -50,9 +44,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* =========================
-   Base Reset & Typography
-   ========================= */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -69,9 +60,7 @@ body {
   overflow-x: hidden;
 }
 
-/* =========================
-   Accessibility
-   ========================= */
+
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -97,9 +86,7 @@ a:focus,
   outline-offset: 2px;
 }
 
-/* =========================
-   Sticky Header & Navigation
-   ========================= */
+
 .main-header {
   position: sticky;
   top: 0;
@@ -180,9 +167,7 @@ a:focus,
   width: 80%;
 }
 
-/* =========================
-   Atmospheric Background Effects
-   ========================= */
+
 .atmosphere {
   position: fixed;
   inset: 0;
@@ -346,36 +331,7 @@ a:focus,
   75% { transform: translateY(-20px) translateX(10px); }
 }
 
-/* Cobweb corners */
-.cobweb {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border: 2px solid var(--cobweb);
-  border-radius: 50%;
-  opacity: 0.1;
-}
 
-.cobweb::before,
-.cobweb::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border: 2px solid var(--cobweb);
-  border-radius: 50%;
-}
-
-.cobweb::before { transform: rotate(45deg); }
-.cobweb::after { transform: rotate(22.5deg); }
-
-.cobweb-tl { top: 10px; left: 10px; }
-.cobweb-tr { top: 10px; right: 10px; }
-.cobweb-bl { bottom: 10px; left: 10px; }
-.cobweb-br { bottom: 10px; right: 10px; }
-
-/* =========================
-   Storybook Layout
-   ========================= */
 .storybook {
   position: relative;
   z-index: 1;
@@ -419,9 +375,7 @@ a:focus,
   margin: 0 auto;
 }
 
-/* =========================
-   Typography & Headings
-   ========================= */
+
 .title-main {
   font-family: var(--font-accent);
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -468,9 +422,7 @@ a:focus,
   margin-bottom: var(--space-4);
 }
 
-/* =========================
-   Story Content
-   ========================= */
+
 .story-text {
   font-size: 1.1rem;
   line-height: 1.8;
@@ -491,9 +443,7 @@ a:focus,
   border-radius: 0 8px 8px 0;
 }
 
-/* =========================
-   Interactive Elements
-   ========================= */
+
 .character-showcase {
   display: flex;
   justify-content: center;
@@ -561,9 +511,7 @@ a:focus,
   50% { opacity: 0.5; transform: translateY(-10px); }
 }
 
-/* =========================
-   Scenes and Illustrations
-   ========================= */
+
 .graveyard-scene,
 .mansion-layout,
 .forest-scene,
@@ -613,9 +561,7 @@ a:focus,
   50% { transform: translateX(-50%) translateY(0); opacity: 1; }
 }
 
-/* =========================
-   Mansion Page Styles
-   ========================= */
+
 .mansion-page {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     position: relative;
@@ -863,84 +809,7 @@ a:focus,
     100% { transform: scale(1.1); filter: brightness(1.1) drop-shadow(0 0 15px #8b0000); }
 }
 
-/* Mansion scene */
-.floating-candles {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: var(--space-4);
-}
 
-.candle {
-  width: 8px;
-  height: 30px;
-  background: linear-gradient(to bottom, #8B4513, #A0522D);
-  position: relative;
-  animation: candleFlicker 2s ease-in-out infinite;
-}
-
-.candle::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 12px;
-  background: var(--pumpkin);
-  border-radius: 50% 50% 20% 20%;
-  animation: flameFlicker 1.5s ease-in-out infinite;
-}
-
-@keyframes candleFlicker {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-2px) rotate(1deg); }
-  75% { transform: translateY(2px) rotate(-1deg); }
-}
-
-@keyframes flameFlicker {
-  0%, 100% { transform: translateX(-50%) scale(1); opacity: 0.9; }
-  50% { transform: translateX(-50%) scale(1.1); opacity: 1; }
-}
-
-.watching-eyes {
-  position: absolute;
-  bottom: 40px;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-.eye {
-  width: 20px;
-  height: 20px;
-  background: var(--monster-green);
-  border-radius: 50%;
-  position: relative;
-  animation: eyeBlink 3s infinite;
-}
-
-.eye::before {
-  content: '';
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 8px;
-  height: 8px;
-  background: var(--black);
-  border-radius: 50%;
-}
-
-@keyframes eyeBlink {
-  0%, 90%, 100% { transform: scaleY(1); }
-  95% { transform: scaleY(0.1); }
-}
-
-/* =========================
-   Navigation Buttons
-   ========================= */
 .page-nav {
   display: flex;
   justify-content: center;
@@ -990,37 +859,7 @@ a:focus,
   background: linear-gradient(135deg, #d0d0d0, #f0f0f0);
 }
 
-/* =========================
-   Footer
-   ========================= */
-.main-footer {
-  position: relative;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.9);
-  border-top: 1px solid var(--pumpkin);
-  padding: var(--space-4);
-  margin-top: var(--space-4);
-}
 
-.footer-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.credits {
-  color: var(--muted);
-  margin-bottom: var(--space-2);
-}
-
-.accessibility-note {
-  color: var(--cobweb);
-  font-size: 0.9rem;
-}
-
-/* =========================
-   Responsive Design
-   ========================= */
 @media (max-width: 768px) {
   .header-content {
     flex-direction: column;
@@ -1088,9 +927,6 @@ a:focus,
   }
 }
 
-/* =========================
-   Final Page Special Effects
-   ========================= */
 .final-message {
   text-align: center;
   margin: var(--space-4) 0;
@@ -1112,206 +948,42 @@ a:focus,
   50% { transform: scale(1.05); text-shadow: 0 0 20px var(--pumpkin); }
 }
 
-.halloween-celebration {
-  text-align: center;
-  margin: var(--space-4) 0;
-}
-
-.banner-img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  animation: bannerFloat 3s ease-in-out infinite;
-}
-
-@keyframes bannerFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(2deg); }
-}
-/* ==== Fit images perfectly inside the scene boxes ==== */
-
-/* Make the boxes center their contents and hide overflow */
 .graveyard-scene,
 .mansion-layout,
 .forest-scene,
 .final-scene {
   display: grid;
   place-items: center;
-  overflow: hidden;         /* keeps anything from spilling out */
-  /* optional: adjust the box height if you want a bit taller */
-  /* height: 260px; */
-}
-
-/* Any <img> placed directly inside the box fills the box while preserving aspect */
-.graveyard-scene > img,
-.mansion-layout > img,
-.forest-scene > img,
-.final-scene > img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain;      /* show entire image (no crop) */
-  object-position: center;
-  display: block;
-}
-
-/* If one page (like page 4) still needs a smaller look, add class="img-xs" to that box */
-.img-xs > img { 
-  max-width: 80% !important; 
-  max-height: 80% !important; 
-}
-/* ===== Last page image: nudge upward ===== */
-/* Works when your last page section has id="final"
-   and the image sits inside a .final-scene figure */
-#final .final-scene > img {
-  object-position: center 35%;  /* move "view" upward; lower % = higher image */
-  transform: translateY(-10px); /* small extra lift */
-}
-
-/* If you also want the box content itself a bit higher inside the page: */
-#final .final-scene {
-  align-items: start;           /* pushes content toward the top of the box */
-  padding-top: 8px;             /* small breathing room */
-}
-/* --- Forest page: make image fill the box --- */
-#forest .forest-scene {
-  height: 260px;              /* tweak as you like */
-  display: grid;
-  place-items: center;
   overflow: hidden;
 }
 
-#forest .forest-scene > img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;   /* fills box (may crop slightly) */
-  object-position: center;        /* center the crop */
-  display: block;
-}
-/* Make the forest scene wider and fill edge-to-edge inside the book */
 #forest .forest-scene {
-  width: 98% !important;      /* override the 820px cap */
+  width: 98% !important;
   max-width: none !important;
-  height: 280px;              /* a touch taller looks better when wider */
+  height: 280px;
 }
 
-/* Fill the forest frame completely */
-#forest .forest-scene > img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: cover !important;   /* use 'contain' if you prefer no crop */
-  object-position: center;
-}
-
-/* If you want the final page wide the same way, include this too: */
+/* Make the final page wide */
 #final .final-scene {
   width: 98% !important;
   max-width: none !important;
-}
-/* === FINAL page: fit image neatly inside the box === */
-#final .final-scene {
-  /* make the frame a little taller and use full width of the book */
-  width: 98% !important;
-  max-width: none !important;
-  height: 320px;            /* adjust to taste (280–360px works well) */
-  display: grid;
-  place-items: center;
-  overflow: hidden;
+  height: 320px;
 }
 
-/* ensure the <img> uses all available space but keeps its aspect ratio */
-#final .final-scene > img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  object-fit: contain !important;   /* show the entire image (no crop) */
-  object-position: center;
-  display: block;
-  background: transparent;          /* avoids dark bleed behind PNGs/WebPs */
-}
-
-/* OPTIONAL: If you prefer edge-to-edge fill (may crop), switch to: */
-/* #final .final-scene > img { object-fit: cover !important; } */
-/* =============================
-   FINAL PAGE: guaranteed fit/fill
-   ============================= */
-
-/* 1) Make the final page frame wide, with no inner padding */
-section#final figure,
-section#final .scene,
-section#final [class*="scene"],
-#final figure,
-#final .scene,
-#final [class*="scene"] {
-  position: relative !important;
-  width: 99% !important;         /* remove narrow caps */
-  max-width: none !important;
-  height: 340px !important;      /* tweak 280–380px to taste */
-  margin-inline: auto !important;
-  padding: 0 !important;         /* kill inner padding (causes side gaps) */
-  overflow: hidden !important;
-  border-radius: 14px !important;
-}
-
-/* 2) Force ANY image inside that frame to fill it edge-to-edge */
-section#final figure > img,
-section#final .scene > img,
-section#final [class*="scene"] > img,
-#final figure > img,
-#final .scene > img,
-#final [class*="scene"] > img,
-#final img.final-image {
-  position: absolute !important;
-  inset: 0 !important;           /* top/right/bottom/left = 0 */
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
-  display: block !important;
-  object-position: center !important;
-
-  /* —— CHOOSE ONE: ——
-     To FILL (no side bars, may crop), keep COVER.
-     To FIT (show all, letterbox ok), switch to CONTAIN.
-  */
-  object-fit: cover !important;
-  /* object-fit: contain !important; */
-}
-
-/* 3) Neutralize any global caps that might still win */
-.scene > img,
-figure > img {
-  max-width: none !important;
-  max-height: none !important;
-}
-
-/* 4) Optional: make the whole book content a tad wider on the final page */
-#final.page,
-section#final.page {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-/* ==== Center the pumpkin on the cover ==== */
+/* Center the pumpkin on the cover */
 #cover .hero-pumpkin {
-  display: grid;             /* centers both axes */
+  display: grid;
   place-items: center;
   width: 100%;
-  margin: 0 auto;            /* keeps it centered in the page */
-  min-height: 0;             /* avoid odd stretching if parent is flex */
+  margin: 0 auto;
+  min-height: 0;
 }
 
 #cover .pumpkin-img {
-  width: clamp(120px, 18vw, 220px);  /* responsive size */
+  width: clamp(120px, 18vw, 220px);
   height: auto;
   display: block;
-  margin: 0 auto;           /* belt-and-suspenders centering */
-  transform: none;          /* cancel any earlier shifts */
+  margin: 0 auto;
 }
 
 /* If your cover body is a flex row, force column + centering */
@@ -1319,5 +991,5 @@ section#final.page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;       /* center the intro text too */
+  text-align: center;
 }
